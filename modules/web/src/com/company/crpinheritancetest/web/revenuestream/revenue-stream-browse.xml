@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.crpinheritancetest.web.revenuestream.RevenueStreamBrowse"
+        focusComponent="revenueStreamsTable"
+        lookupComponent="revenueStreamsTable"
+        messagesPack="com.company.crpinheritancetest.web.revenuestream">
+    <dsContext>
+        <groupDatasource id="revenueStreamsDs"
+                         class="com.company.crpinheritancetest.entity.RevenueStream"
+                         view="revenueStream-view">
+            <query>
+                <![CDATA[select e from crpinheritancetest$RevenueStream e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="revenueStreamsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="revenueStreamsTable"
+                datasource="revenueStreamsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="revenueStreamsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="amount"/>
+                <column id="streamCode"/>
+            </columns>
+            <rows datasource="revenueStreamsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="revenueStreamsTable.create"/>
+                <button id="editBtn"
+                        action="revenueStreamsTable.edit"/>
+                <button id="removeBtn"
+                        action="revenueStreamsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.crpinheritancetest.web.invoice.InvoiceEdit"
+        datasource="invoiceDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.crpinheritancetest.web.invoice">
+    <dsContext>
+        <datasource id="invoiceDs"
+                    class="com.company.crpinheritancetest.entity.Invoice"
+                    view="invoice-view">
+            <collectionDatasource id="invoiceLinesDs"
+                                  property="invoiceLines"/>
+        </datasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="invoiceDs">
+            <column width="250px">
+                <field property="dueDate"/>
+            </column>
+        </fieldGroup>
+        <groupBox id="invoiceLinesBox"
+                  caption="msg://com.company.crpinheritancetest.entity/Invoice.invoiceLines">
+            <table id="invoiceLinesTable"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="countyRevenue"/>
+                    <column id="qty"/>
+                    <column id="totalAmount"/>
+                </columns>
+                <rows datasource="invoiceLinesDs"/>
+                <buttonsPanel>
+                    <button action="invoiceLinesTable.create"/>
+                    <button action="invoiceLinesTable.edit"/>
+                    <button action="invoiceLinesTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.company.crpinheritancetest.entity.Invoice"
+          extends="_local"
+          name="invoice-view">
+        <property name="invoiceLines"
+                  view="_minimal">
+            <property name="countyRevenue"
+                      view="_minimal">
+                <property name="amount"/>
+            </property>
+            <property name="qty"/>
+            <property name="totalAmount"/>
+        </property>
+    </view>
+    <view class="com.company.crpinheritancetest.entity.BusinessPermit"
+          extends="_local"
+          name="businessPermit-view"/>
+    <view class="com.company.crpinheritancetest.entity.RevenueStream"
+          extends="_local"
+          name="revenueStream-view"/>
+    <view class="com.company.crpinheritancetest.entity.Invoiceline"
+          extends="_local"
+          name="invoiceline-view">
+        <property name="countyRevenue"
+                  view="_minimal">
+            <property name="amount"/>
+        </property>
+    </view>
+</views>

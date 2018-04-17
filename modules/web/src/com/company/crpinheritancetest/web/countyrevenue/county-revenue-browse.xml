@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.crpinheritancetest.web.countyrevenue.CountyRevenueBrowse"
+        focusComponent="countyRevenuesTable"
+        lookupComponent="countyRevenuesTable"
+        messagesPack="com.company.crpinheritancetest.web.countyrevenue">
+    <dsContext>
+        <groupDatasource id="countyRevenuesDs"
+                         class="com.company.crpinheritancetest.entity.CountyRevenue"
+                         view="_local">
+            <query>
+                <![CDATA[select e from crpinheritancetest$CountyRevenue e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="countyRevenuesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="countyRevenuesTable"
+                datasource="countyRevenuesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="countyRevenuesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="amount"/>
+            </columns>
+            <rows datasource="countyRevenuesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="countyRevenuesTable.create"/>
+                <button id="editBtn"
+                        action="countyRevenuesTable.edit"/>
+                <button id="removeBtn"
+                        action="countyRevenuesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

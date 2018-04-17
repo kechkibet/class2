@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.crpinheritancetest.web.businesspermit.BusinessPermitBrowse"
+        focusComponent="businessPermitsTable"
+        lookupComponent="businessPermitsTable"
+        messagesPack="com.company.crpinheritancetest.web.businesspermit">
+    <dsContext>
+        <groupDatasource id="businessPermitsDs"
+                         class="com.company.crpinheritancetest.entity.BusinessPermit"
+                         view="businessPermit-view">
+            <query>
+                <![CDATA[select e from crpinheritancetest$BusinessPermit e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="businessPermitsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="businessPermitsTable"
+                datasource="businessPermitsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="businessPermitsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="amount"/>
+                <column id="activityCode"/>
+                <column id="endDate"/>
+            </columns>
+            <rows datasource="businessPermitsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="businessPermitsTable.create"/>
+                <button id="editBtn"
+                        action="businessPermitsTable.edit"/>
+                <button id="removeBtn"
+                        action="businessPermitsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>
