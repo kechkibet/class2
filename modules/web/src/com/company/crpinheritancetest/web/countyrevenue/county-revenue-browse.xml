@@ -33,6 +33,7 @@
             <columns>
                 <column id="name"/>
                 <column id="amount"/>
+                <column id="revenueType"/>
             </columns>
             <rows datasource="countyRevenuesDs"/>
             <rowsCount/>

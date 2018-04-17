@@ -25,11 +25,23 @@ public class CountyRevenue extends BaseIntegerIdEntity implements HasUuid {
     @Column(name = "UUID")
     protected UUID uuid;
 
+    @Column(name = "REVENUE_TYPE")
+    protected String revenueType;
+
     @Column(name = "NAME")
     protected String name;
 
     @Column(name = "AMOUNT")
     protected Double amount;
+
+
+    public void setRevenueType(CountyRevenueTypes revenueType) {
+        this.revenueType = revenueType == null ? null : revenueType.getId();
+    }
+
+    public CountyRevenueTypes getRevenueType() {
+        return revenueType == null ? null : CountyRevenueTypes.fromId(revenueType);
+    }
 
 
     public void setUuid(UUID uuid) {

@@ -1,0 +1,1 @@
+alter table CRPINHERITANCETEST_COUNTY_REVENUE add column REVENUE_TYPE varchar(50) ;

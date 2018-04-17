@@ -14,6 +14,7 @@ create table CRPINHERITANCETEST_COUNTY_REVENUE (
     UUID varchar(36),
     DTYPE varchar(31),
     --
+    REVENUE_TYPE varchar(50),
     NAME varchar(255),
     AMOUNT double precision,
     --
